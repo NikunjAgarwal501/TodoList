@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_file"
+    app:startDestination="@id/todoTask">
+    <fragment
+        android:id="@+id/todoTask"
+        android:name="com.example.todolist.userInterface.main.TodoTaskFragment"
+        android:label="fragment_todo_task"
+        tools:layout="@layout/fragment_todo_task" >
+        <action
+            android:id="@+id/action_todoTask_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_todoTask_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.todolist.userInterface.addTask.AddFragment"
+        android:label="AddFragment" >
+        <action
+            android:id="@+id/action_addFragment_to_todoTask"
+            app:destination="@id/todoTask" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.todolist.userInterface.updateTask.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_todoTask"
+            app:destination="@id/todoTask" />
+        <argument
+            android:name="taskId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
